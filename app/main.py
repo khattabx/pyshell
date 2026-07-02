@@ -13,7 +13,6 @@ def main():
             break;
         elif command.startswith("echo "):
             print(f"{command[5:]}")
-            break
         else:
             print(f"{command}: command not found")
 
