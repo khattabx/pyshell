@@ -1,11 +1,11 @@
 import sys
+import shutil
 
 
 def main():
     while True:
         sys.stdout.write("$ ")
 
-        # User input
         command = input()
 
         if command == "exit":
@@ -20,7 +20,12 @@ def main():
             if cmd in ("echo", "exit", "type"):
                 print(f"{cmd} is a shell builtin")
             else:
-                print(f"{cmd}: not found")
+                path = shutil.which(cmd)
+
+                if path:
+                    print(f"{cmd} is {path}")
+                else:
+                    print(f"{cmd}: not found")
 
         else:
             print(f"{command}: command not found")
