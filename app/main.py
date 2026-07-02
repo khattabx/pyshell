@@ -21,6 +21,7 @@ def main():
                 print(f"{cmd} is a shell builtin")
             else:
                 print(f"{cmd} invalid_command")
+                print("invalid_comman: not found")
 
         else:
             print(f"{command}: command not found")
