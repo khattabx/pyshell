@@ -20,8 +20,7 @@ def main():
             if cmd in ("echo", "exit"):
                 print(f"{cmd} is a shell builtin")
             else:
-                print(f"{cmd} invalid_command")
-                print("invalid_comman: not found")
+                print(f"{cmd}: not found")
 
         else:
             print(f"{command}: command not found")
