@@ -17,8 +17,8 @@ def main():
 
         elif command.startswith("type "):
             cmd = command[5:]
-
-            if cmd in ("echo", "exit", "type"):
+            builtinlst = ("echo", "exit", "type", "pwd")
+            if cmd in builtinlst:
                 print(f"{cmd} is a shell builtin")
             else:
                 path = shutil.which(cmd)
