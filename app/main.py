@@ -38,7 +38,7 @@ def main():
             if truepath == True :
                 os.chdir(cdpath)
             else:
-                print(f"cd: {cdpath} No such file or directory")
+                print(f"cd: {cdpath}: No such file or directory")
 
         else:
             try:
