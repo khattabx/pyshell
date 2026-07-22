@@ -1,4 +1,5 @@
 import sys
+import os
 import shutil
 import subprocess as subp
 
@@ -29,9 +30,7 @@ def main():
                     print(f"{cmd}: not found")
 
         elif command == "pwd":
-            subp.run(command)
-
-            
+            print(os.getcwd())
 
         else:
             try:
