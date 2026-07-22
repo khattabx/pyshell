@@ -1,12 +1,13 @@
 import sys
 import shutil
-
+import subprocess as subp
 
 def main():
     while True:
         sys.stdout.write("$ ")
 
         command = input()
+        cmdlst = command.split()
 
         if command == "exit":
             break
@@ -28,7 +29,10 @@ def main():
                     print(f"{cmd}: not found")
 
         else:
-            print(f"{command}: command not found")
+            try:
+                subp.run(cmdlst)
+            except FileNotFoundError:
+                print(f"{command}: command not found")
 
 
 if __name__ == "__main__":
