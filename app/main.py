@@ -35,7 +35,13 @@ def main():
         elif cmdlst[0] == "cd":
             if len(cmdlst) < 2:
                 continue
+        
             cdpath = cmdlst[1]
+            if cdpath == "~":
+                usr_home = os.environ.get('HOME')
+                os.chdir(usr_home)
+                continue
+
             try:
               os.chdir(cdpath)
             except (FileNotFoundError, NotADirectoryError):
