@@ -38,8 +38,8 @@ def main():
         
             cdpath = cmdlst[1]
             if cdpath == "~":
-                usr_home = os.environ.get('HOME')
-                os.chdir(usr_home)
+                cdpath = os.path.expanduser(cdpath)
+                os.chdir(cdpath)
                 continue
 
             try:
