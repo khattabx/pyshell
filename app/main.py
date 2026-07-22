@@ -18,8 +18,8 @@ def main():
 
         elif command.startswith("type "):
             cmd = command[5:]
-
-            if cmd in ("echo", "exit", "type", "pwd"):
+            bltincmd =  ("echo", "exit", "type", "pwd", "cd")
+            if cmd in bltincmd:
                 print(f"{cmd} is a shell builtin")
             else:
                 path = shutil.which(cmd)
@@ -31,6 +31,14 @@ def main():
 
         elif command == "pwd":
             print(os.getcwd())
+
+        elif cmdlst[0] == "cd":
+            cdpath = cmdlst[1]
+            truepath = os.path.exists(cdpath)
+            if truepath == True :
+                os.chdir(cdpath)
+            else:
+                print(f"cd: {cdpath} No such file or directory")
 
         else:
             try:
