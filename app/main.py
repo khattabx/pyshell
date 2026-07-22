@@ -33,12 +33,13 @@ def main():
             print(os.getcwd())
 
         elif cmdlst[0] == "cd":
+            if len(cmdlst) < 2:
+                continue
             cdpath = cmdlst[1]
-            truepath = os.path.exists(cdpath)
-            if truepath == True :
-                os.chdir(cdpath)
-            else:
-                print(f"cd: {cdpath}: No such file or directory")
+            try:
+              os.chdir(cdpath)
+            except (FileNotFoundError, NotADirectoryError):
+              print(f"cd: {cdpath}: No such file or directory")
 
         else:
             try:
